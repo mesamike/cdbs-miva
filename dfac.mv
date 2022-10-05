@@ -30,7 +30,8 @@
                      statdate   char(10),
                      sortdate   char(10),
                      licexpdate char(10),
-                     callate char(10)">
+                     calldate   char(10),
+                     callhist   note">
    <mvmakeindex name="dfac_db"
                 indexfile="{g.dfac_facid_idx}"
                 flags="ascending"
@@ -83,10 +84,8 @@
                         l.tsid_dtv,
                         l.dig_stat,
                         l.sat_tv,
-                        l.netwrk_affil,
-                        l.nielson_dma,
-                        l.tv_virt_chan,
-                        l.change_date"
+                        l.change_date,
+                        l.callhist"
                 delimiter="|">
 
                <mvwhile expr="{substring(l.callsign,1,1) eq 'D'}">
@@ -99,6 +98,7 @@
                <mvassign name="d.state" value="{l.state}">
                <mvassign name="d.status" value="{l.fac_stat}">
                <mvassign name="d.fac_id" value="{l.fac_id}">
+               <mvassign name="d.callhist" value="{l.callhist}">
                <mvif expr="{len(l.stat_date) gt 0}">
                   <mvassign name="d.statdate" value="{l.stat_date}">
                <mvelse>
@@ -109,6 +109,7 @@
                <mvassign name="d.sortdate" value="{substring(d.statdate, 7, 4) $ 
                                                    substring(d.statdate, 1, 2) $ 
                                                    substring(d.statdate, 4, 2)}">
+               <mvassin name = "d.callhist" value="{l.callhist}">
                <mvadd>
       </mvimport>
    </mvif>
@@ -228,6 +229,7 @@ Both</td></tr>
       <td align="right"><mveval expr="{d.freq}"></td>
       <td align="center"><mveval expr="{d.state}"></td>
       <td><mveval expr="{d.city}"></td>
+      <td><mveval expr="{d.callhist}"></td>
    </tr>
    <mvassign name="rec_count" value="{rec_count +1}">
 </mvif>
