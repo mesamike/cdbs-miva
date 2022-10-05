@@ -31,7 +31,7 @@
                      sortdate   char(10),
                      licexpdate char(10),
                      calldate   char(10),
-                     callhist   note">
+                     callhist   memo">
    <mvmakeindex name="dfac_db"
                 indexfile="{g.dfac_facid_idx}"
                 flags="ascending"
