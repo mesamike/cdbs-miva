@@ -109,7 +109,7 @@
                <mvassign name="d.sortdate" value="{substring(d.statdate, 7, 4) $ 
                                                    substring(d.statdate, 1, 2) $ 
                                                    substring(d.statdate, 4, 2)}">
-               <mvassin name = "d.callhist" value="{l.callhist}">
+               <mvassign name = "d.callhist" value="{l.callhist}">
                <mvadd>
       </mvimport>
    </mvif>
