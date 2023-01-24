@@ -264,9 +264,11 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <code>
    <b>2022-09-20:</b> Callsign history now included in list. Callsigns discontinued before 1981 are not listed.<br/>
    <b>2022-09-21:</b> Merged separate entries for stations that have different app ids for day and night authorizations. Stations with multiple transmitter sites (not just using different tower designated as #1 in same array) still have separate entries. Also deleted now-irrelevant APP_ID column from delimited text file.<br>
-   <b>2022-10-05:</b> Removed deleted/reinstated callsign pairs from callsign history. Also, list now initially shows only 540 kHz stations to accomodate those with slow internet links where it takes a long time to load the full list. If you want to see the full list, pick "All Frequencies" from the dropdown.
-   </code><br/>
-Comments/suggestions? <a href="mailto:mike@mesamike.org">email me</a>
+   <b>2022-10-05:</b> Removed deleted/reinstated callsign pairs from callsign history. Also, list now initially shows only 540 kHz stations to accomodate those with slow internet links where it takes a long time to load the full list. If you want to see the full list, pick "All Frequencies" from the dropdown.<br/></code>
+   Bugs:<br/><code>
+   <b>2023-01-23:</b> A well-known DXer notes that KSPN 710 is missing from the list. Investigation into this anamoly is ongoing.
+   </code>
+<p>Comments/suggestions? <a href="mailto:mike@mesamike.org">email me</a>
    <hr>
 <div class="fb-like" data-href="http://mesamike.org/radio/cdbs/amdb.mvc" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 <hr>
