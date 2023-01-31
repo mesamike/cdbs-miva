@@ -37,7 +37,7 @@
 <mvassign name="statelist" value="{statelist$'MO - Missouri,MP - Mariana Islands,MS - Mississippi,'}">
 <mvassign name="statelist" value="{statelist$'MT - Montana,NC - North Carolina,ND - North Dakota,'}">
 <mvassign name="statelist" value="{statelist$'NE - Nebraska,NH - New Hampshire,NJ - New Jersey,'}">
-<mvassign name="statelist" value="{statelist$'NM - New Mexico,NY - New York,OH - Ohio,OK - Oklahoma,'}">
+<mvassign name="statelist" value="{statelist$'NM - New Mexico,NV - Nevada,NY - New York,OH - Ohio,OK - Oklahoma,'}">
 <mvassign name="statelist" value="{statelist$'OR - Oregon,PA - Pennsylvania,PR - Puerto Rico,'}">
 <mvassign name="statelist" value="{statelist$'RI - Rhode Island,SC - South Carolina,SD - South Dakota,'}">
 <mvassign name="statelist" value="{statelist$'TN - Tennessee,TX - Texas,UM - US Minor Outlying Islands,UT - Utah,VA - Virginia,'}">
