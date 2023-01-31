@@ -266,7 +266,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <b>2022-09-21:</b> Merged separate entries for stations that have different app ids for day and night authorizations. Stations with multiple transmitter sites (not just using different tower designated as #1 in same array) still have separate entries. Also deleted now-irrelevant APP_ID column from delimited text file.<br>
    <b>2022-10-05:</b> Removed deleted/reinstated callsign pairs from callsign history. Also, list now initially shows only 540 kHz stations to accomodate those with slow internet links where it takes a long time to load the full list. If you want to see the full list, pick "All Frequencies" from the dropdown.<br/>
    <b>2023-01-26:</b> Resolved issue with  KSPN 710 (and probably others) missing from the list.<br>
-   <b>2023-01-31:</b> Nevada was missing from drop-sown states list.
+   <b>2023-01-31:</b> Fixed Nevada missing from drop-down states list.
    </code>
 <p>Comments/suggestions? <a href="mailto:mike@mesamike.org?subject=Mesa Mike's List of USA AM Band Radio Stations">email me</a>
    <hr>
