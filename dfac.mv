@@ -171,7 +171,7 @@
 <b>Note:</b> This is a list of deleted <b>facility licenses</b>. 
 
 <p>
-<b>This list is generated automatically each morning<b> from the engineering database files the FCC makes publically available. The list contains only the deleted facilities that are in the FCC databases. There are of course many other stations that went defunct before the FCC started keeping track of things with a computerized database (1981 or so).
+<b>This list is generated automatically each morning</b> from the engineering database files the FCC makes publically available. The list contains only the deleted facilities that are in the FCC databases. There are of course many other stations that went defunct before the FCC started keeping track of things with a computerized database (1981 or so).
 <hr>
 
 <mvif expr="{g.show eq ''}">
