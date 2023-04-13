@@ -322,7 +322,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
             <mvassign name="stateopt" value="{gettoken(statelist,',',listidx)}">
          </mvwhile>
       </select></td>
-      <td><input type=submit value="Show Only This Freq and/or State"></td>
+      <td><input type=submit value="Apply these options"></td>
    </tr>
    <tr>
       <td>Display Option: </td>
@@ -415,6 +415,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 <mvelse>
 HEADERS HERE<br/>
    <mvwhile expr="{not d.eof}">
+      <mveval expr="{d.fac_id$'|'}">
       <mveval expr="{d.freq$'|'}">
       <mveval expr="{d.call$'|'}">
       <mveval expr="{d.state$'|'}">
@@ -424,7 +425,7 @@ HEADERS HERE<br/>
       <mveval expr="{d.pwrc$'|'}">
       <mveval expr="{d.lat$'|'}">
       <mveval expr="{d.lon$'|'}">
-      <mvif expr="{f_calc$'|'}">
+      <mvif expr="{f_calc}">
          <mveval expr="{calc_distance()$'|'}">
          <mveval expr="{calc_bearing()$'|'}">
       </mvif>
