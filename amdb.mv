@@ -175,6 +175,21 @@
 <miva standardoutputlevel="text,html">
 
 <mvopen name="{amdb_db}" database="{amdb_dbf}" indexes="{idx_file}">
+<mvif expr="{f_freq}">
+   <mvassign name="filtfreq" value="{f_freq}">
+</mvif>
+<mvif expr="{f_state}">
+   <mvassign name="filtstate" value="{f_state}">
+</mvif>
+
+
+<mvif expr="{filtfreq and not filtstate}">
+   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq}">
+<mvelse> <mvif expr="{filtstate and not filtfreq}">
+   <mvfilter name="{amdb_db}" filter="{d.state eq f_state}">
+<mvelse><mvif expr="{filtfreq and filtstate}">   
+   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq and d.state eq f_state}">
+</mvif></mvif></mvif>
 
 <mvif expr="{f_disp ne 'disp_delim'}">
 <html>
@@ -339,21 +354,6 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
     <hr>
 
 
-<mvif expr="{f_freq}">
-   <mvassign name="filtfreq" value="{f_freq}">
-</mvif>
-<mvif expr="{f_state}">
-   <mvassign name="filtstate" value="{f_state}">
-</mvif>
-
-
-<mvif expr="{filtfreq and not filtstate}">
-   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq}">
-<mvelse> <mvif expr="{filtstate and not filtfreq}">
-   <mvfilter name="{amdb_db}" filter="{d.state eq f_state}">
-<mvelse><mvif expr="{filtfreq and filtstate}">   
-   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq and d.state eq f_state}">
-</mvif></mvif></mvif>
 
 
 <table>
