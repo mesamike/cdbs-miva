@@ -324,9 +324,37 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
       </select></td>
       <td><input type=submit value="Show Only This Freq and/or State"></td>
    </tr>
+   <tr>
+      <td>Display Option: </td>
+      <td><Select  name="f_disp" value="disp_norm">>
+         <option  value ="disp_norm">Table</option>
+         <option  value ="disp_delim">Delimited</option>
+      </select></td>
+      <td></td>
    </form>
 </table>
     <hr>
+
+
+<mvopen name="{amdb_db}" database="{amdb_dbf}" indexes="{idx_file}">
+<mvif expr="{f_freq}">
+   <mvassign name="filtfreq" value="{f_freq}">
+</mvif>
+<mvif expr="{f_state}">
+   <mvassign name="filtstate" value="{f_state}">
+</mvif>
+
+
+<mvif expr="{filtfreq and not filtstate}">
+   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq}">
+<mvelse> <mvif expr="{filtstate and not filtfreq}">
+   <mvfilter name="{amdb_db}" filter="{d.state eq f_state}">
+<mvelse><mvif expr="{filtfreq and filtstate}">   
+   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq and d.state eq f_state}">
+</mvif></mvif></mvif>
+
+
+<mvif expr="{f_disp ne 'disp_delim'}">
 <table>
    <tr>
       <th align="center" valign="bottom">
@@ -354,23 +382,6 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
       <th align="left" valign="bottom">CALL_HIST</th>
    </tr>
 
-
-<mvopen name="{amdb_db}" database="{amdb_dbf}" indexes="{idx_file}">
-<mvif expr="{f_freq}">
-   <mvassign name="filtfreq" value="{f_freq}">
-</mvif>
-<mvif expr="{f_state}">
-   <mvassign name="filtstate" value="{f_state}">
-</mvif>
-
-
-<mvif expr="{filtfreq and not filtstate}">
-   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq}">
-<mvelse> <mvif expr="{filtstate and not filtfreq}">
-   <mvfilter name="{amdb_db}" filter="{d.state eq f_state}">
-<mvelse><mvif expr="{filtfreq and filtstate}">   
-   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq and d.state eq f_state}">
-</mvif></mvif></mvif>
 
 <mvwhile expr="{not d.eof}">
    <mvif expr="{d.status eq 'LICSL'}">
@@ -401,6 +412,29 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <mvskip rows="1">
 </mvwhile>
 </table>
+<mvelse>
+HEADERS HERE
+   <mvwhile expr="{not d.eof}">
+      <mveval expr="{d.freq$'|'}">
+      <mveval expr="{d.call$'|'}">
+      <mveval expr="{d.state$'|'}">
+      <mveval expr="{d.city$'|'}">
+      <mveval expr="{d.pwrd$'|'}">
+      <mveval expr="{d.pwrn$'|'}">
+      <mveval expr="{d.pwrc$'|'}">
+      <mveval expr="{d.lat$'|'}">
+      <mveval expr="{d.lon$'|'}">
+      <mvif expr="{f_calc$'|'}">
+         <mveval expr="{calc_distance()$'|'}">
+         <mveval expr="{calc_bearing()$'|'}">
+      </mvif>
+      <mveval expr="{d.status$'|'}">
+      <mveval expr="{d.pcalls}">
+      <mvskip rows="1">
+   </mvwhile>
+</mvif>
+
+
 </body>
 </html>
 <mvexit>
