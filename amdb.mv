@@ -416,27 +416,13 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 </body>
 </html>
 <mvelse>
+<code>
 HEADERS HERE<br/>
    <mvwhile expr="{not d.eof}">
-      <mveval expr="{d.fac_id$'|'}">
-      <mveval expr="{d.freq$'|'}">
-      <mveval expr="{d.call$'|'}">
-      <mveval expr="{d.state$'|'}">
-      <mveval expr="{d.city$'|'}">
-      <mveval expr="{d.pwrd$'|'}">
-      <mveval expr="{d.pwrn$'|'}">
-      <mveval expr="{d.pwrc$'|'}">
-      <mveval expr="{d.lat$'|'}">
-      <mveval expr="{d.lon$'|'}">
-      <mvif expr="{f_calc}">
-         <mveval expr="{calc_distance()$'|'}">
-         <mveval expr="{calc_bearing()$'|'}">
-      </mvif>
-      <mveval expr="{d.status$'|'}">
-      <mveval expr="{d.pcalls}">
-      <br/>
+      <mveval expr="{d.fac_id$'|'$d.freq$'|'$d.call$'|'$d.state$'|'$d.city$'|'$d.pwrd$'|'$d.pwrn$'|'$d.pwrc$'|'$d.lat$'|'$d.lon$'|'}"><mvif expr="{f_calc}"><mveval expr="{calc_distance()$'|'$calc_bearing()$'|'}"></mvif><mveval expr="{d.status$'|'$d.pcalls}">
       <mvskip rows="1">
    </mvwhile>
+</code>
 </mvif>
 
 
