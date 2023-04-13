@@ -413,7 +413,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 </mvwhile>
 </table>
 <mvelse>
-HEADERS HERE
+HEADERS HERE<br/>
    <mvwhile expr="{not d.eof}">
       <mveval expr="{d.freq$'|'}">
       <mveval expr="{d.call$'|'}">
@@ -430,6 +430,7 @@ HEADERS HERE
       </mvif>
       <mveval expr="{d.status$'|'}">
       <mveval expr="{d.pcalls}">
+      <br/>
       <mvskip rows="1">
    </mvwhile>
 </mvif>
