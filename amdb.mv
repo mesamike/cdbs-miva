@@ -5,6 +5,7 @@
 ******************************************
 <mvassign name="basedir" value="cdbs">
 <mvassign name="amdb_dbf" value="{basedir $ '/amdb.dbf'}">
+<mvassign name="amdb_dbt" value="{basedir $ '/amdb.dbt'}">
 <mvassign name="amdb_freq_idx" value="{basedir $ '/amdb_freq.idx'}">
 <mvassign name="amdb_call_idx" value="{basedir $ '/amdb_call.idx'}">
 <mvassign name="amdb_qth_idx" value="{basedir $ '/amdb_qth.idx'}">
@@ -16,6 +17,7 @@
 
 
 <mvassign name="dfac_dbf" value="{basedir $ '/dfac.dbf'}">
+<mvassign name="dfac_dbt" value="{basedir $ '/dfac.dbt'}">
 <mvassign name="dfac_facid_idx" value="{basedir $ '/dfac_facid.idx'}">
 <mvassign name="dfac_freq_idx" value="{basedir $ '/dfac_freq.idx'}">
 <mvassign name="dfac_qth_idx" value="{basedir $ '/dfac_qth.idx'}">
@@ -59,12 +61,14 @@
 
 <mvif expr="{fexists(amdb_rebuild)}">
    <mvassign name="dummy" value="{fdelete(amdb_dbf)}">
+   <mvassign name="dummy" value="{fdelete(amdb_dbt)}">
    <mvassign name="dummy" value="{fdelete(amdb_call_idx)}">
    <mvassign name="dummy" value="{fdelete(amdb_freq_idx)}">
    <mvassign name="dummy" value="{fdelete(amdb_qth_idx)}">
    <mvassign name="dummy" value="{fdelete(amdb_facid_idx)}">
    <mvassign name="dummy" value="{fdelete(amdb_hitcount)}">
    <mvassign name="dummy" value="{fdelete(dfac_dbf)}">
+   <mvassign name="dummy" value="{fdelete(dfac_dbt)}">
    <mvassign name="dummy" value="{fdelete(dfac_call_idx)}">
    <mvassign name="dummy" value="{fdelete(dfac_freq_idx)}">
    <mvassign name="dummy" value="{fdelete(fac_qth_idx)}">
