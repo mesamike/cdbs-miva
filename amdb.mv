@@ -14,6 +14,14 @@
 <mvassign name="amdb_hitcount" value="{basedir $ '/hitcount.txt'}">
 <mvassign name="amdb_rebuild" value="{basedir $ '/rebuild'}">
 
+
+<mvassign name="dfac_dbf" value="{basedir $ '/dfac.dbf'}">
+<mvassign name="dfac_facid_idx" value="{basedir $ '/dfac_facid.idx'}">
+<mvassign name="dfac_freq_idx" value="{basedir $ '/dfac_freq.idx'}">
+<mvassign name="dfac_qth_idx" value="{basedir $ '/dfac_qth.idx'}">
+<mvassign name="dfac_statdate_idx" value="{basedir $ '/dfac_statdate.idx'}">
+
+
 <mvassign name="freqlist" value ="530,531,540,549,550,558,560,567,570,576,580,585,590,594">
 <mvassign name="freqlist" value ="{freqlist$',600,603,610,612,620,621,630,639,640,648,650,657,660,666,670,675,680,684,690,693'}">
 <mvassign name="freqlist" value ="{freqlist$',700,702,710,711,720,729,730,738,740,747,750,756,760,765,770,774,780,783,790,792'}">
