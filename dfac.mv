@@ -235,7 +235,7 @@ Both</td></tr>
    <tr>
       <td><mveval expr="{d.statdate}"></td>
       <td><mveval expr="{d.status}"></td>
-      <td><a href="{'http://licensing.fcc.gov/cgi-bin/ws.exe/prod/cdbs/pubacc/prod/sta_det.pl?Facility_id='$d.fac_id}" target="_blank" ><mveval expr="{d.fac_id}"></a></td>
+      <td><a href="{'https://enterpriseefiling.fcc.gov/dataentry/public/tv/publicFacilityDetails.html?facilityId='$d.fac_id}" target="_blank" ><mveval expr="{d.fac_id}"></a></td>
       <td><mveval expr="{d.call}"></td>
       <td align="right"><mveval expr="{d.freq}"></td>
       <td align="center"><mveval expr="{d.state}"></td>
