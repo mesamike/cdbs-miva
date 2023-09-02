@@ -314,7 +314,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <b>2023-01-31:</b> Fixed Nevada missing from drop-down states list.<br/>
    <b>2023-02-01:</b> Implemented workaround for a few stations (WJYK, WPNW, WQRX) that have no coordinates listed in FCC database for night authorizations.<br/>
    <b>2023-04-14:</b> Added option to display delimited text list with distances and bearings if calculated<br/>
-   <b?2023-09-01:</b> Changed station lookup URL to point to new LMS instead of old AMQ  
+   <b>2023-09-01:</b> Changed station lookup URL to point to new LMS instead of old AMQ  
    </code>
 <p>Comments/suggestions? <a href="mailto:mike@mesamike.org?subject=Mesa Mike's List of USA AM Band Radio Stations">email me</a>
    <hr>
