@@ -5,6 +5,7 @@
 ******************************************
 <mvassign name="basedir" value="cdbs">
 <mvassign name="amdb_dbf" value="{basedir $ '/amdb.dbf'}">
+<mvassign name="amdb_dbt" value="{basedir $ '/amdb.dbt'}">
 <mvassign name="amdb_freq_idx" value="{basedir $ '/amdb_freq.idx'}">
 <mvassign name="amdb_call_idx" value="{basedir $ '/amdb_call.idx'}">
 <mvassign name="amdb_qth_idx" value="{basedir $ '/amdb_qth.idx'}">
@@ -12,6 +13,16 @@
 <mvassign name="amdb_dat" value="{basedir $ '/amdb.dat'}">
 <mvassign name="amdb_update" value="{basedir $ '/update.txt'}">
 <mvassign name="amdb_hitcount" value="{basedir $ '/hitcount.txt'}">
+<mvassign name="amdb_rebuild" value="{basedir $ '/rebuild'}">
+
+
+<mvassign name="dfac_dbf" value="{basedir $ '/dfac.dbf'}">
+<mvassign name="dfac_dbt" value="{basedir $ '/dfac.dbt'}">
+<mvassign name="dfac_facid_idx" value="{basedir $ '/dfac_facid.idx'}">
+<mvassign name="dfac_freq_idx" value="{basedir $ '/dfac_freq.idx'}">
+<mvassign name="dfac_qth_idx" value="{basedir $ '/dfac_qth.idx'}">
+<mvassign name="dfac_statdate_idx" value="{basedir $ '/dfac_statdate.idx'}">
+
 
 <mvassign name="freqlist" value ="530,531,540,549,550,558,560,567,570,576,580,585,590,594">
 <mvassign name="freqlist" value ="{freqlist$',600,603,610,612,620,621,630,639,640,648,650,657,660,666,670,675,680,684,690,693'}">
@@ -37,7 +48,7 @@
 <mvassign name="statelist" value="{statelist$'MO - Missouri,MP - Mariana Islands,MS - Mississippi,'}">
 <mvassign name="statelist" value="{statelist$'MT - Montana,NC - North Carolina,ND - North Dakota,'}">
 <mvassign name="statelist" value="{statelist$'NE - Nebraska,NH - New Hampshire,NJ - New Jersey,'}">
-<mvassign name="statelist" value="{statelist$'NM - New Mexico,NY - New York,OH - Ohio,OK - Oklahoma,'}">
+<mvassign name="statelist" value="{statelist$'NM - New Mexico,NV - Nevada,NY - New York,OH - Ohio,OK - Oklahoma,'}">
 <mvassign name="statelist" value="{statelist$'OR - Oregon,PA - Pennsylvania,PR - Puerto Rico,'}">
 <mvassign name="statelist" value="{statelist$'RI - Rhode Island,SC - South Carolina,SD - South Dakota,'}">
 <mvassign name="statelist" value="{statelist$'TN - Tennessee,TX - Texas,UM - US Minor Outlying Islands,UT - Utah,VA - Virginia,'}">
@@ -48,6 +59,24 @@
    <mvassign name="dummy"  value="{fmkdir(basedir)}">
 </mvif>
 
+<mvif expr="{fexists(amdb_rebuild)}">
+   <mvassign name="dummy" value="{fdelete(amdb_dbf)}">
+   <mvassign name="dummy" value="{fdelete(amdb_dbt)}">
+   <mvassign name="dummy" value="{fdelete(amdb_call_idx)}">
+   <mvassign name="dummy" value="{fdelete(amdb_freq_idx)}">
+   <mvassign name="dummy" value="{fdelete(amdb_qth_idx)}">
+   <mvassign name="dummy" value="{fdelete(amdb_facid_idx)}">
+   <mvassign name="dummy" value="{fdelete(amdb_hitcount)}">
+   <mvassign name="dummy" value="{fdelete(dfac_dbf)}">
+   <mvassign name="dummy" value="{fdelete(dfac_dbt)}">
+   <mvassign name="dummy" value="{fdelete(dfac_call_idx)}">
+   <mvassign name="dummy" value="{fdelete(dfac_freq_idx)}">
+   <mvassign name="dummy" value="{fdelete(fac_qth_idx)}">
+   <mvassign name="dummy" value="{fdelete(dfac_facid_idx)}">
+   <mvassign name="dummy" value="{fdelete(dfac_statdate_idx)}">
+   <mvassign name="dummy" value="{fdelete(amdb_rebuild)}">
+</mvif>
+    
 <mvif expr="{not fexists(amdb_update)}">
    <miva standardoutputlevel="text, html">
    <html><head><title>Database Is Updating</title></head>
@@ -165,8 +194,33 @@
 
 <mvexport file="{amdb_hitcount}" delimiter="" fields="l.hitcount"> 
 
+<mvif expr="{not f_freq}">
+    <mvassign name="f_freq" value="540">
+</mvif>
+<mvif expr="{f_freq eq 'allfreq'}">
+   <mvassign name="f_freq" value="">
+</mvif>
+
 <miva standardoutputlevel="text,html">
 
+<mvopen name="{amdb_db}" database="{amdb_dbf}" indexes="{idx_file}">
+<mvif expr="{f_freq}">
+   <mvassign name="filtfreq" value="{f_freq}">
+</mvif>
+<mvif expr="{f_state}">
+   <mvassign name="filtstate" value="{f_state}">
+</mvif>
+
+
+<mvif expr="{filtfreq and not filtstate}">
+   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq}">
+<mvelse> <mvif expr="{filtstate and not filtfreq}">
+   <mvfilter name="{amdb_db}" filter="{d.state eq f_state}">
+<mvelse><mvif expr="{filtfreq and filtstate}">   
+   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq and d.state eq f_state}">
+</mvif></mvif></mvif>
+
+<mvif expr="{f_disp ne 'disp_delim'}">
 <html>
    <head>
       <title>Mesa Mike's List of AM Radio Stations in the USA</title>
@@ -249,14 +303,20 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    Views today: <mveval expr="{hitcount}"><br>
    <b>PWR-D</b>:Day Power, <b>PWR-N</b>:Night Power, <b>PWR-C</b>:Critical Hours Power<br>
    Critical Hours are sunrise till 2 hours after sunrise, and 2 hours before sunset till sunset<br>
-   (get the <a href="amdb.txt">delimited text file</a>, 
-    suitable for loading into your favorite spreadsheet program)
-   (also, see <a href="dfac.mvc">list of deleted stations</a>)
+   (also, see [<a href="dfac.mvc">list of deleted stations</a>])
    <hr>
    Recent improvements:<br>
    <code>
-   <b>2023-09-01:</b> Station lookup URL now points to FCC LMS system instead of old AM Query system.<br/>
+   <b>2022-09-20:</b> Callsign history now included in list. Callsigns discontinued before 1981 are not listed.<br/>
+   <b>2022-09-21:</b> Merged separate entries for stations that have different app ids for day and night authorizations. Stations with multiple transmitter sites (not just using different tower designated as #1 in same array) still have separate entries. Also deleted now-irrelevant APP_ID column from delimited text file.<br>
+   <b>2022-10-05:</b> Removed deleted/reinstated callsign pairs from callsign history. Also, list now initially shows only 540 kHz stations to accomodate those with slow internet links where it takes a long time to load the full list. If you want to see the full list, pick "All Frequencies" from the dropdown.<br/>
+   <b>2023-01-26:</b> Resolved issue with  KSPN 710 (and probably others) missing from the list.<br>
+   <b>2023-01-31:</b> Fixed Nevada missing from drop-down states list.<br/>
+   <b>2023-02-01:</b> Implemented workaround for a few stations (WJYK, WPNW, WQRX) that have no coordinates listed in FCC database for night authorizations.<br/>
+   <b>2023-04-14:</b> Added option to display delimited text list with distances and bearings if calculated<br/>
+   <b?2023-09-01:</b> Changed station lookup URL to point to new LMS instead of old AMQ  
    </code>
+<p>Comments/suggestions? <a href="mailto:mike@mesamike.org?subject=Mesa Mike's List of USA AM Band Radio Stations">email me</a>
    <hr>
 <div class="fb-like" data-href="http://mesamike.org/radio/cdbs/amdb.mvc" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 <hr>
@@ -276,7 +336,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
       <td>Pick a Frequency: </td>
       <td><Select   name="f_freq" value="{f_freq}">>
          <mvassign name="listidx" value="1">
-         <option   value =""> All Frequencies</option>
+         <option   value ="allfreq">All Frequencies</option>
          <option disabled></option>
          <mvassign name="freqopt" value="{gettoken(freqlist,',',listidx)}">
          <mvwhile expr="{freqopt}">
@@ -309,11 +369,22 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
             <mvassign name="stateopt" value="{gettoken(statelist,',',listidx)}">
          </mvwhile>
       </select></td>
-      <td><input type=submit value="Show Only This Freq and/or State"></td>
+      <td><input type=submit value="Apply these options"></td>
    </tr>
+   <tr>
+      <td>Display Option: </td>
+      <td><Select  name="f_disp" value="disp_norm">>
+         <option  value ="disp_norm">Table</option>
+         <option  value ="disp_delim">Delimited</option>
+      </select></td>
+      <td></td>
    </form>
 </table>
     <hr>
+
+
+
+
 <table>
    <tr>
       <th align="center" valign="bottom">
@@ -342,22 +413,6 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    </tr>
 
 
-<mvopen name="{amdb_db}" database="{amdb_dbf}" indexes="{idx_file}">
-<mvif expr="{f_freq}">
-   <mvassign name="filtfreq" value="{f_freq}">
-</mvif>
-<mvif expr="{f_state}">
-   <mvassign name="filtstate" value="{f_state}">
-</mvif>
-
-<mvif expr="{filtfreq and not filtstate}">
-   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq}">
-<mvelse> <mvif expr="{filtstate and not filtfreq}">
-   <mvfilter name="{amdb_db}" filter="{d.state eq f_state}">
-<mvelse><mvif expr="{filtfreq and filtstate}">   
-   <mvfilter name="{amdb_db}" filter="{d.freq eq f_freq and d.state eq f_state}">
-</mvif></mvif></mvif>
-
 <mvwhile expr="{not d.eof}">
    <mvif expr="{d.status eq 'LICSL'}">
       <mvassign name="stat" value="Silent">
@@ -369,7 +424,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 
    <tr>
       <td align="right"><mveval expr="{d.freq}"></td>
-      <td><a href="{'https://enterpriseefiling.fcc.gov/dataentry/public/tv/publicFacilityDetails.html?facilityId='$d.fac_id}" target="_blank" ><mveval expr="{d.call}"></a></td>
+      <td><a href="{'https://enterpriseefiling.fcc.gov/dataentry/public/tv/publicFacilityDetails.html?facilityId'$d.fac_id}" target="_blank" ><mveval expr="{d.call}"></a></td>
       <td align="center"><mveval expr="{d.state}"></td>
       <td><mveval expr="{d.city}"></td>
       <td align="right"><mveval expr="{d.pwrd}"></td>
@@ -389,6 +444,15 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 </table>
 </body>
 </html>
+<mvelse>
+<pre>
+FAC_ID|FREQ|CALL|STATE|CITY|PWR_D|PWR_N|PWR_C|LAT|LON|<mvif expr="{f_calc}"><mveval expr="{'DISTANCE|BEARING|'}"></mvif>STATUS|CALL_HIST
+<mvwhile expr="{not d.eof}"><mveval expr="{d.fac_id$'|'$d.freq$'|'$d.call$'|'$d.state$'|'$d.city$'|'$d.pwrd$'|'$d.pwrn$'|'$d.pwrc$'|'$d.lat$'|'$d.lon$'|'}"><mvif expr="{f_calc}"><mveval expr="{calc_distance()$'|'$calc_bearing()$'|'}"></mvif><mveval expr="{d.status$'|'$d.pcalls}"><mvskip rows="1">
+</mvwhile>
+</pre>
+</mvif>
+
+
 <mvexit>
 
 
