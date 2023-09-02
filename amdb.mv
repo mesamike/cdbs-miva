@@ -255,8 +255,6 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <hr>
    Recent improvements:<br>
    <code>
-   <b>2022-09-20:</b> Callsign history now included in list. Callsigns discontinued before 1981 are not listed.<br/>
-   <b>2022-09-21:</b> Merged separate entries for stations that have different app ids for day and night authorizations. Stations with multiple transmitter sites (not just using different tower as #1 in same array) still have separate entries. Also deleted now-irrelevant APP_ID column from delimited text file.<br/>
    <b>2023-09-01:</b> Station lookup URL now points to FCC LMS system instead of old AM Query system.<br/>
    </code>
    <hr>
