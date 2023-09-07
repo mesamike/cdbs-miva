@@ -304,7 +304,10 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <b>PWR-D</b>:Day Power, <b>PWR-N</b>:Night Power, <b>PWR-C</b>:Critical Hours Power<br>
    Critical Hours are sunrise till 2 hours after sunrise, and 2 hours before sunset till sunset<br>
    (also, see [<a href="dfac.mvc">list of deleted stations</a>])
-   <hr>
+   <hr/>
+   <h2><font color=#ff0000>WARNING: This list is based on the FCC's CDBS data files, which are nortoriously not kept up to date any more.</font><br/>
+   I am in the process of converting the system to use the new LMS database files. </h2>
+   <hr/>
    Recent improvements:<br>
    <code>
    <b>2022-09-20:</b> Callsign history now included in list. Callsigns discontinued before 1981 are not listed.<br/>
