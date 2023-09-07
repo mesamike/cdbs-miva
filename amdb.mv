@@ -427,7 +427,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 
    <tr>
       <td align="right"><mveval expr="{d.freq}"></td>
-      <td><a href="{'https://enterpriseefiling.fcc.gov/dataentry/public/tv/publicFacilityDetails.html?facilityId'$d.fac_id}" target="_blank" ><mveval expr="{d.call}"></a></td>
+      <td><a href="{'https://enterpriseefiling.fcc.gov/dataentry/public/tv/publicFacilityDetails.html?facilityId='$d.fac_id}" target="_blank" ><mveval expr="{d.call}"></a></td>
       <td align="center"><mveval expr="{d.state}"></td>
       <td><mveval expr="{d.city}"></td>
       <td align="right"><mveval expr="{d.pwrd}"></td>
