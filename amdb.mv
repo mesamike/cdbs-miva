@@ -419,11 +419,13 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 <mvwhile expr="{not d.eof}">
    <mvif expr="{d.status eq 'LICSL'}">
       <mvassign name="stat" value="Silent">
+   <mvelse><mvif expr="{d.status eq 'LICRP'}">
+      <mvassign name="stat" value="Reduced Power">
    <mvelse><mvif expr="{d.status eq 'CPOFF'}">
       <mvassign name="stat" value="Construction Permit">
    <mvelse>
       <mvassign name="stat" value="">
-   </mvif></mvif>
+   </mvif></mvif></mvif>
 
    <tr>
       <td align="right"><mveval expr="{d.freq}"></td>
