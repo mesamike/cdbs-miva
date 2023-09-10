@@ -305,8 +305,8 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    Critical Hours are sunrise till 2 hours after sunrise, and 2 hours before sunset till sunset<br>
    (also, see [<a href="dfac.mvc">list of deleted stations</a>])
    <hr/>
-   <h2>I am in the process of converting the system to use the new LMS database files, because the CDBS data files aren't
-       very well kept up to date anymore. </h2>
+   <b>NOTE:</b>  I am in the process of converting the system to use the new LMS database files, because the CDBS data files aren't
+       very well kept up to date anymore. 
    <hr/>
    Recent improvements:<br>
    <code>
