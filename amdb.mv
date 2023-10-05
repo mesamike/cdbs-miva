@@ -306,7 +306,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    (also, see [<a href="dfac.mvc">list of deleted stations</a>])
    <hr/>
    <b>NOTE:</b>  I am in the process of converting the system to use the new LMS database files, because the CDBS data files aren't
-       very well kept up to date anymore. <font color="red"><b>THIS LIST IS LIKELY OUT OF DATEa</b></font>. (Try the new system [<a href="http://mesamike.org/radio/amdb">here</a>])
+       very well kept up to date anymore. <font color="red"><b>THIS LIST IS LIKELY OUT OF DATE</b></font>. (Try the new system [<a href="http://mesamike.org/radio/amdb">here</a>])
    <hr/>
    Recent improvements:<br>
    <code>
