@@ -1,0 +1,45 @@
+<miva standardoutputlevel="text, html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN"
+    "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="en">
+   <head>
+      <meta
+         http-equiv="refresh"
+         content="2; url=/radio/amdb/">
+      <meta
+         http-equiv="Content-Type"
+         content="text/html; charset=iso-8859-1">
+      <meta 
+         name="description"
+         content="Mesa Mike's List of USA AM Band Radio Stations">
+      <link
+         rel="stylesheet"
+         href="/gentoo.css"
+         type="text/css"
+         media="screen">
+      <title>MESAMIKE DOT ORG</title>
+   </head>
+
+   <body id="error_body">
+      <div class="banner">
+         <img src="/radio/dxlogbook/alma.jpg"/>
+      </div>
+
+
+      <div id="content">
+         <h1 class="headline">
+Redirecting to new URL. Hang on a second...
+         </h1>
+         <address>
+            <a href="/"><!--#echo encoding="entity" var="SERVER_NAME" --></a>
+            <br />
+            <!--#config timefmt="%c" -->
+            <small><!--#echo encoding="none" var="DATE_LOCAL" --></small>
+            <br />
+            <small><!--#echo encoding="none" var="SERVER_SOFTWARE" --></small>
+         </address>
+         </p>
+      </div>
+   </body>
+</html>
+<mvexit>
