@@ -325,7 +325,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 <hr>
 <table>
    <tr><td colspan="3">Enter your home coordinates in degrees: (<b>example</b>: Latitude = 37.0902, Longitude = -95.7219)</td></tr>
-   <form action="amdb.mvc" method="POST">
+   <form action="{s.documenturl}" method="POST">
    <input type="hidden" name="f_calc" value="calc">
    <mvhide fields="f_freq,f_sortby,f_state">
    <tr><td>Latitude:</td><td><input name="f_lat" type="text" value="{f_lat}" onfocus="getValue(this)"></td><td></td></tr>
@@ -333,7 +333,7 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
    <td><input type="submit" value="Calculate Distance and Bearing" onclick="saveVals(f_lat, f_lon)"></td></tr>
    </form>
    <tr><td colspan=3><hr></td></tr>
-   <form action="amdb.mvc" method="POST">
+   <form action="{s.documenturl}" method="POST">
       <mvhide fields="f_calc,f_sortby,f_lat,f_lon">
    <tr>
       <td>Pick a Frequency: </td>
@@ -391,17 +391,18 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 <table>
    <tr>
       <th align="center" valign="bottom">
-         <a href="{'amdb.mvc?f_sortby=freq&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">FREQ</a>
+         <a href="{s.documenturl$'?f_sortby=freq&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">FREQ</a>
       </th>
       <th align="left" valign="bottom">
-         <a href="{'amdb.mvc?f_sortby=call&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CALLSIGN</a>
+         <a href="{s.documenturl$'?f_sortby=call&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CALLSIGN</a>
       </th>
       <th align="right" valign="bottom">
-         <a href="{'amdb.mvc?f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">STATE</a>
+         <a href="{s.documenturl$'?f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">STATE</a>
       </th>
       <th align="left" valign="bottom">
-         <a href="{'amdb.mvc?f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CITY</a>
-      </th>
+         <a href="{s.documenturl$'?f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CITY</a>
+      </th>/
+
       <th align="center" valign="bottom">PWR-D</th>
       <th align="center" valign="bottom">PWR-N</th>
       <th align="center" valign="bottom">PWR-C</th>
