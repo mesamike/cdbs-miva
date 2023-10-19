@@ -391,16 +391,16 @@ function saveVals(e1,e2,e3,e4,e5,e6) {
 <table>
    <tr>
       <th align="center" valign="bottom">
-         <a href="{s.documenturl$'?f_sortby=freq&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">FREQ</a>
+         <a href="{s.documenturl$'f_sortby=freq&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">FREQ</a>
       </th>
       <th align="left" valign="bottom">
-         <a href="{s.documenturl$'?f_sortby=call&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CALLSIGN</a>
+         <a href="{s.documenturl$'f_sortby=call&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CALLSIGN</a>
       </th>
       <th align="right" valign="bottom">
-         <a href="{s.documenturl$'?f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">STATE</a>
+         <a href="{s.documenturl$'f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">STATE</a>
       </th>
       <th align="left" valign="bottom">
-         <a href="{s.documenturl$'?f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CITY</a>
+         <a href="{s.documenturl$'f_sortby=qth&f_calc='$f_calc$'&f_lat='$f_lat$'&f_lon='$f_lon$'&f_freq='$f_freq$'&f_state='$f_state}">CITY</a>
       </th>
 
       <th align="center" valign="bottom">PWR-D</th>
