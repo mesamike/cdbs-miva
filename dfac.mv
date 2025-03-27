@@ -173,7 +173,7 @@
    <h2>compiled from the FCC database</h2>
    <i>(<mveval expr="{lastupdate}">)</i><br> 
    <b>STATUS:</b> LICAN=License cancelled, PRCAN=Construction Permit Cancelled<br>
-   (also, see <a href="amdb.mvc">list of currently licensed radio stations</a>)
+   (also, see <a href="http://mesamike.org/radio/amdb/amdb.mvc">list of currently licensed radio stations</a>)
    <hr>
 <div class="fb-like" data-href="http://mesamike.org/radio/cdbs/dfac.mvc" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 <hr>
