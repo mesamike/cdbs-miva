@@ -11,7 +11,6 @@
 <mvassign name="dfac_facid_idx" value="{basedir $ '/dfac_facid.idx'}">
 <mvassign name="dfac_statdate_idx" value="{basedir $ '/dfac_statdate.idx'}">
 <mvassign name="dfac_dat" value="{basedir $ '/dfac.dat'}">
-<mvassign name="dfac_update" value="{basedir $ '/update.txt'}">
 
 
 <mvif expr="{not fexists(basedir)}">
@@ -128,11 +127,6 @@
       <mvassign name="idx_file" value="{dfac_statdate_idx}">
 </mvif></mvif></mvif></mvif>
 
-<mvimport file="{dfac_update}"
-          fields="lastupdate"
-          delimiter="">
-</mvimport>
-
 
 <miva standardoutputlevel="text,html">
 
@@ -162,7 +156,6 @@
 
    <h1>Mesa Mike's List of Deleted AM Radio Station Facilities</h1>
    <h2>compiled from the FCC database</h2>
-   <i>(<mveval expr="{lastupdate}">)</i><br> 
    <b>STATUS:</b> LICAN=License cancelled, PRCAN=Construction Permit Cancelled<br>
    (also, see <a href="http://mesamike.org/radio/amdb/amdb.mvc">list of currently licensed radio stations</a>)
    <hr>
