@@ -18,15 +18,6 @@
    <mveval expr="{fmkdir(basedir)}">
 </mvif>
 
-<mvif expr="{not fexists(dfac_update)}">
-   <miva standardoutputlevel="text, html">
-   <html><head><title>Database Is Updating</title></head>
-   <body><center><h1>DATABASE IS BEING REBUILT</h1><h2>Come back in a few minutes</h2>
-   <h3>(Or the FCC database servers are broken. In which case, be patient!)</h3></center>
-   </body></html>
-   <mvexit>
-</mvif>
-
 <mvif expr="{not fexists(dfac_dbf)}">
    <mvcreate name="dfac_db"
              database="{g.dfac_dbf}"
